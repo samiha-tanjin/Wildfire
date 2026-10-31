@@ -1,0 +1,272 @@
+/* Scoped to the calendar section. Uses the main project's variables
+   (--ink, --cream, --paper, --white, --coral, --orange, --line) and fonts. */
+
+.cal-section {
+  --cal-fire: #f2765e; /* colour of the fire name blocks */
+  background: var(--cream);
+}
+
+.cal-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.cal-head h2 {
+  margin: 14px 0 0;
+  font-size: clamp(46px, 5vw, 70px);
+  line-height: 1;
+}
+
+.cal-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cal-month {
+  min-width: 170px;
+  text-align: center;
+  font-family: "DM Serif Display", serif;
+  font-size: 24px;
+  letter-spacing: -0.02em;
+}
+
+.cal-today {
+  padding: 12px 20px;
+  border: 1px solid var(--line);
+  border-radius: 50px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 600;
+  transition: 180ms ease;
+}
+
+.cal-today:hover {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.cal-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 26px;
+  align-items: start;
+}
+
+.cal-grid-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: var(--white);
+}
+
+.cal-weekdays,
+.cal-days {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.cal-weekdays {
+  background: rgba(16, 26, 77, 0.06);
+  color: rgba(16, 26, 77, 0.62);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.cal-weekdays div {
+  padding: 14px 12px;
+}
+
+.cal-day {
+  display: flex;
+  min-width: 0;
+  min-height: 98px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 8px;
+  border: 0;
+  border-top: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  background: var(--white);
+  color: var(--ink);
+  text-align: left;
+  font-size: 14px;
+}
+
+.cal-day:nth-child(7n) {
+  border-right: 0;
+}
+
+.cal-day.is-outside {
+  background: rgba(16, 26, 77, 0.035);
+  color: rgba(16, 26, 77, 0.5);
+}
+
+.cal-day.is-selected {
+  outline: 2px solid var(--ink);
+  outline-offset: -2px;
+}
+
+.cal-day:focus-visible {
+  outline: 3px solid var(--coral);
+  outline-offset: -3px;
+}
+
+.cal-num {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border-radius: 50%;
+  font-weight: 600;
+}
+
+.cal-day.is-today .cal-num {
+  background: var(--orange);
+  color: var(--ink);
+}
+
+.cal-pill {
+  width: 100%;
+  overflow: hidden;
+  padding: 3px 7px;
+  border-radius: 6px;
+  background: var(--cal-fire);
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cal-more {
+  color: rgba(16, 26, 77, 0.62);
+  font-size: 11px;
+}
+
+.cal-panel {
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: var(--white);
+}
+
+.cal-date {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.1;
+}
+
+.cal-count {
+  margin: 6px 0 0;
+  color: rgba(16, 26, 77, 0.65);
+  font-size: 13px;
+}
+
+.cal-empty {
+  margin: 20px 0 0;
+  padding: 26px 18px;
+  border: 1px dashed var(--line);
+  border-radius: 16px;
+  color: rgba(16, 26, 77, 0.65);
+  font-size: 13px;
+  text-align: center;
+}
+
+.cal-events {
+  display: grid;
+  gap: 32px;
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cal-name {
+  display: inline-block;
+  margin: 0;
+  padding: 3px 10px;
+  border-radius: 6px;
+  background: var(--cal-fire);
+  color: var(--ink);
+  font-family: "DM Serif Display", serif;
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.cal-field {
+  margin-top: 16px;
+}
+
+.cal-field p {
+  margin: 4px 0 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.cal-field .cal-label {
+  margin: 0;
+  color: rgba(16, 26, 77, 0.55);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.cal-steps {
+  display: grid;
+  gap: 12px;
+  margin: 8px 0 0;
+  padding: 0 0 0 14px;
+  border-left: 2px solid var(--cal-fire);
+  list-style: none;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.cal-field .cal-sources {
+  color: rgba(16, 26, 77, 0.65);
+}
+
+@media (max-width: 980px) {
+  .cal-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .cal-month {
+    min-width: 130px;
+    font-size: 20px;
+  }
+
+  .cal-weekdays div {
+    padding: 10px 4px;
+    font-size: 9px;
+    text-align: center;
+  }
+
+  .cal-day {
+    min-height: 62px;
+    padding: 4px;
+  }
+
+  .cal-pill {
+    height: 6px;
+    padding: 0;
+    font-size: 0;
+  }
+
+  .cal-panel {
+    padding: 22px;
+  }
+}

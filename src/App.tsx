@@ -1,6 +1,7 @@
 import { FormEvent, useEffect, useRef, useState } from "react"
 import * as THREE from "three"
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js"
+import BurningCalendar from "./components/BurningCalendar/BurningCalendar"
 
 const images = {
   earth:
@@ -471,7 +472,7 @@ function App() {
           </div>
         </div>
       </section>
-
+      <BurningCalendar />
       <section className="about section-pad" id="about">
         <div className="wrap about-grid">
           <article className="earth-card">
